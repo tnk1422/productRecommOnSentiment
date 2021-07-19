@@ -4,6 +4,7 @@ from datetime import datetime,date
 import re
 import nltk
 nltk.download('stopwords')
+nltk.download('punkt')
 import time
 nltk.download('wordnet')
 from nltk.tokenize import word_tokenize
