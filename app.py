@@ -30,7 +30,8 @@ def recommend():
 		tablehtml="<p style=\"color:red\"> There is error while recommending product for user "+username+ " Error Message "+str(e)+ " Please try with valid user</p>"
 
 	htmlPage="<!doctype html>	<html> <head> <title>Recommending Top 5 products for User "+username+" </title>"+"<link href=\"static/style.css\" rel=\"stylesheet\">"
-	htmlPage=htmlPage+"<body> <h2>Recommending Top 5 products for User "+username+" </h2></body>"+tablehtml+"</html>"
+	htmlPage=htmlPage+"<body> <h2>Recommending Top 5 products for User "+username+" </h2></body>"+tablehtml
+	htmlPage=htmlPage+"<h2>Developed by - Student Name - Tarak Nath Konar , PGDMLAI - Upgrad & IITB "+username+" </h2>"+"</html>"
 	return htmlPage
 	
 
