@@ -182,8 +182,9 @@ def get_recommendations(username):
 
 
 def filterProductBySentiment(recommendedProducts):
-    stopwords_custom=setStopWords()
-    stopwords_custom = [ word for word in stopwords_custom if 'n\'t' not in word and 'not' not in word and 'no' not in word ]
+    # Disabling Stopwords and text clean for review text title before passing to Model while selecting top 5 products,to avoid heroku 30 sec time out
+    #stopwords_custom=setStopWords()
+    #stopwords_custom = [ word for word in stopwords_custom if 'n\'t' not in word and 'not' not in word and 'no' not in word ]
     productSentimentPercentageDict={}
     global productReviews
     global wordVectorizer
@@ -194,7 +195,8 @@ def filterProductBySentiment(recommendedProducts):
         dfProductReview['reviews_title']=dfProductReview['reviews_title'].replace(np.NaN," ")
         dfProductReview['reviews_text_title']=dfProductReview['reviews_text']+" "+dfProductReview['reviews_title']
         dfProductReview.drop(['reviews_text','reviews_title'],axis=1,inplace=True)
-        dfProductReview['reviews_text_title']=text_clean(dfProductReview,stopwords_custom)
+        # Disabling Stopwords and text clean for review text title before passing to Model while selecting top 5 products,to avoid heroku 30 sec time out
+        #dfProductReview['reviews_text_title']=text_clean(dfProductReview,stopwords_custom)
         tfidfVector=wordVectorizer.transform(dfProductReview['reviews_text_title'])
         train_features = pd.DataFrame(tfidfVector.toarray(),columns=wordVectorizer.get_feature_names())
         train_features.reset_index(drop=True,inplace=True)
