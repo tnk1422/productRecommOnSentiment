@@ -17,11 +17,13 @@ def index():
 @app.before_first_request
 def before_first_request():
     init()
+    yield "<html></head><body>Processing your Request</body></html>"
 
 @app.route('/recommend', methods=['GET'])
 def recommend():
 	username = request.args.get('username')
 	print(f"LOG: Input username is {username}")
+	yield "<html></head><body>Processing your Request</body></html>"
 	try:
 		finalList=getFinalRecommendaions(username)
 		tablehtml=pd.DataFrame.from_dict(finalList,orient='index').reset_index().rename(columns={"index": "productName", 0: "recommendationPercentage"}).to_html()
