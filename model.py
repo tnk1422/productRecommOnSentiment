@@ -1,18 +1,6 @@
 #import the libraries
 import pandas as pd , numpy as np
-# import matplotlib and seaborn
-import matplotlib.pyplot as plt
-import seaborn as sns
 from datetime import datetime,date
-#import xgboost
-# set options for display
-pd.set_option("display.max_rows",500)
-pd.set_option("display.max_columns",500)
-pd.set_option("display.width",1000)
-pd.set_option('display.max_colwidth', 200)
-pd.options.display.float_format = "{:.2f}".format
-#Ignoring warnings
-pd.options.mode.chained_assignment = None  # default='warn' this supress warning.
 import re
 import nltk
 import time
