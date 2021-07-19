@@ -3,6 +3,7 @@ import pandas as pd , numpy as np
 from datetime import datetime,date
 import re
 import nltk
+nltk.download('stopwords')
 import time
 nltk.download('wordnet')
 from nltk.tokenize import word_tokenize
